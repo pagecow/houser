@@ -3,6 +3,64 @@ import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
 
 class Wizard extends React.Component {
+    constructor(){
+        super();
+
+        this.state = {
+            property_name: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: '',
+            monthly_mortgage: '',
+            desired_rent: '',
+            image: '',
+        }
+    }
+
+    handlePropChange = (value) => {
+        this.setState({
+            property_name: value
+        })
+    }
+    handleAddChange = (value) => {
+        this.setState({
+            address: value
+        })
+    }
+    handleCityChange = (value) => {
+        this.setState({
+            city: value
+        })
+    }
+    handleStateChange = (value) => {
+        this.setState({
+            state: value
+        })
+    }
+    handleZipChange = (value) => {
+        this.setState({
+            zip: value
+        })
+    }
+    handleMonChange = (value) => {
+        this.setState({
+            monthly_mortgage: value
+        })
+    }
+    handleDesChange = (value) => {
+        this.setState({
+            desired_rent: value
+        })
+    }
+    handleImChange = (value) => {
+        this.setState({
+            image: value
+        })
+    }
+
+
+    
     render(){
         return(
             <div id='dashboard'>
@@ -11,21 +69,21 @@ class Wizard extends React.Component {
                     <div id="wizard-stuff">
                         <h1>Add New Listing</h1>
                         <form>
-                            Property Name: <input/><br/><br/>
+                            Property Name: <input onChange={e => this.handlePropChange(e.target.value)}/><br/><br/>
 
-                            Address: <input/><br/><br/>
+                            Address: <input onChange={e => this.handleAddChange(e.target.value)}/><br/><br/>
 
-                            City: <input/><br/><br/>
+                            City: <input onChange={e => this.handleCityChange(e.target.value)}/><br/><br/>
                             
-                            State: <input/><br/><br/>
+                            State: <input onChange={e => this.handleStateChange(e.target.value)}/><br/><br/>
                             
-                            Zipcode: <input type="number"/><br/><br/>
+                            Zipcode: <input type="number" onChange={e => this.handleZipChange(e.target.value)}/><br/><br/>
                             
-                            Home Image URL: <input/><br/><br/>
+                            Monthly Mortgage Amount: <input type="number" onChange={e => this.handleMonChange(e.target.value)}/><br/><br/>
                             
-                            Monthly Mortgage Amount: <input type="number"/><br/><br/>
-                            
-                            Desired Monthly Rent: <input type="number"/><br/><br/>
+                            Desired Monthly Rent: <input type="number" onChange={e => this.handleDesChange(e.target.value)}/><br/><br/>
+
+                            Home Image URL: <input onChange={e => this.handleImChange(e.target.value)}/><br/><br/>
                         </form>
 
                         <div id='wizard-buttons'>
