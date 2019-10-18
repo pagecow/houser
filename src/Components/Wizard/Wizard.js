@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Header/Header';
+import {Link} from 'react-router-dom';
 
 class Wizard extends React.Component {
     render(){
@@ -28,8 +29,8 @@ class Wizard extends React.Component {
                         </form>
 
                         <div id='wizard-buttons'>
-                            <button className='wz-button-1'>Cancel</button>
-                            <button className='wz-button-2'>Create Listing</button>
+                            <Link to='/'><button className='wz-button-1'>Cancel</button></Link>
+                            <Link to='/'><button className='wz-button-2'>Create Listing</button></Link>
                         </div>
                     </div>
                 </body>
