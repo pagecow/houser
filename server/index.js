@@ -20,6 +20,7 @@ app.use(session({
 }))
 
 app.post('/create/house', ctrl.create)
+app.get('/read/house', ctrl.read)
 
 const port = SERVER_PORT;
 app.listen(port, () => console.log(`Server is running on port ${port}`))

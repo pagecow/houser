@@ -33,6 +33,7 @@
   height: 80vh;
   width: 60%;
   padding: 0px;
+  padding-left: 85px;
   background-color: #E5F4EC;
 }
 /* --------------------------------- */
@@ -100,3 +101,12 @@
 }
 
 /* --------------------------------- */
+
+/* BOX-CREATOR */
+#box-creator {
+  height: 300px;
+  width: 575px;
+  padding-left: 10px;
+  background-color: white;
+  border: 1px black solid;
+}
