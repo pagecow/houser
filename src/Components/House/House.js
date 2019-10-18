@@ -2,6 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class House extends React.Component {
+    constructor(){
+        super();
+
+        this.state = {
+            
+        }
+    }
+    
     render(){
         return(
             <div id='dashboard-center'>
@@ -13,6 +21,7 @@ class House extends React.Component {
 
                 <div className='dashboard-center-bottom'>
                     <h3>Home Listings</h3>
+
                 </div>
 
             </div>

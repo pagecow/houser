@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
+import Axios from 'axios';
 
 class Wizard extends React.Component {
     constructor(){
@@ -59,6 +60,23 @@ class Wizard extends React.Component {
         })
     }
 
+    
+    handlePost = () => {
+        Axios
+            .post('/create/house', {
+                property_name: this.state.property_name,
+                address: this.state.address,
+                city: this.state.city,
+                state: this.state.state,
+                zip: this.state.zip,
+                monthly_mortgage: this.state.monthly_mortgage,
+                desired_rent: this.state.desired_rent,
+                image: this.state.image,
+            })
+            .then(res => {console.log(res)})
+            .catch(err => {console.log(err.response)})
+    }
+
 
     
     render(){
@@ -88,7 +106,9 @@ class Wizard extends React.Component {
 
                         <div id='wizard-buttons'>
                             <Link to='/'><button className='wz-button-1'>Cancel</button></Link>
-                            <Link to='/'><button className='wz-button-2'>Create Listing</button></Link>
+                            {/* <Link to='/'> */}
+                                <button className='wz-button-2' onClick={this.handlePost}>Create Listing</button>
+                            {/* </Link> */}
                         </div>
                     </div>
                 </body>
