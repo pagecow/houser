@@ -8,7 +8,7 @@ class House extends React.Component {
                 <div className='dashboard-center-top'>
                     <p id='dashboard-title'>Dashboard</p>
                     {/* <br></br> */}
-                    <button id='dashboard-button'>Add New Property</button>
+                    <Link to='/wizard'><button id='dashboard-button'>Add New Property</button></Link>
                 </div>
 
                 <div className='dashboard-center-bottom'>
