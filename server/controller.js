@@ -8,12 +8,15 @@ module.exports = {
         res.status(200).send(createdHouse)
     },
     read: (req, res) => {
-        const newProperty = req.app.get('db').read_house();
+        const db = req.app.get('db')
+        const {property_name, address, city, state, zip, monthly_mortgage, desired_rent, image} = req.body
         
-        newProperty.then(function(result) {
+        let house = db.read_house([property_name, address, city, state, zip, monthly_mortgage, desired_rent, image]);
+        
+        house.then(function(result) {
             console.log(result)
         })
         
-        res.status(200).send(newProperty);
+        res.status(200).send(house)
     }
 }

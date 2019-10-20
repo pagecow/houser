@@ -5,6 +5,8 @@ import Header from '../Header/Header';
 import House from '../House/House';
 
 class Dashboard extends React.Component {
+    
+    
     render(){
         return(
             <div>

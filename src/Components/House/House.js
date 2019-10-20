@@ -7,35 +7,24 @@ class House extends React.Component {
         super();
 
         this.state = {
-            property_name: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: '',
-            monthly_mortgage: '',
-            desired_rent: '',
-            image: '',
+            list: []
         }
+        
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         Axios
             .get('/read/house')
             .then(res => {
                 console.log(res)
                 this.setState({
-                    property_name: res.data.property_name,
-                    address: res.data.address,
-                    city: res.data.city,
-                    state: res.data.state,
-                    zip: res.data.zip,
-                    monthly_mortgage: res.data.monthly_mortgage,
-                    desired_rent: res.data.desired_rent,
-                    image: res.data.image,   
+                    ...this.state.list,
+                    list: res.data
             })
-            })}
+    })}
     
     render(){
+        const list = this.state.list;
         
         return(
             <div id='dashboard-center'>
@@ -48,16 +37,21 @@ class House extends React.Component {
                 <div className='dashboard-center-bottom'>
                     <h3>Home Listings</h3>
 
-                    <div id="box-creator">
-                        <img src={this.state.image}/>
-                        <p>Property Name: {this.state.property_name}</p>
-                        <p>Address: {this.state.address}</p>
-                        <p>City: {this.state.city}</p>
-                        <p>State: {this.state.state}</p>
-                        <p>Zip: {this.state.zip}</p>
-                        <p>Monthly Mortgage: ${this.state.monthly_mortgage}</p>
-                        <p>Desired Rent: ${this.state.desired_rent}</p>
-                    </div>
+                <ul>
+                    {list.map(house => 
+                        <div id="box-creator">
+                            <img src={house.image}/>
+                            <p>Property Name: {house.property_name}</p>
+                            <p>Address: {house.address}</p>
+                            <p>City: {house.city}</p>
+                            <p>State: {house.state}</p>
+                            <p>Zip: {house.zip}</p>
+                            <p>Monthly Mortgage: ${house.monthly_mortgage}</p>
+                            <p>Desired Rent: ${house.desired_rent}</p>
+                        </div>
+                    )}
+                </ul>
+                
                 </div>
             </div>
         )
