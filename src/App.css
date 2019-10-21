@@ -104,9 +104,22 @@
 
 /* BOX-CREATOR */
 #box-creator {
+  display: flex;
   height: auto;
-  width: 575px;
+  width: 570px;
   padding-left: 10px;
   background-color: white;
   border: 1px black solid;
+  margin-top: 10px;
+}
+
+.house-image {
+  max-height: 250px;
+  max-width: 250px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.house-description {
+  margin-left: 20px;
 }

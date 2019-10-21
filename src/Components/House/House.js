@@ -38,14 +38,16 @@ class House extends React.Component {
                 
                     {list.map(house => 
                         <div id="box-creator">
-                            <img src={house.image}/>
-                            <p>Property Name: {house.property_name}</p>
-                            <p>Address: {house.address}</p>
-                            <p>City: {house.city}</p>
-                            <p>State: {house.state}</p>
-                            <p>Zip: {house.zip}</p>
-                            <p>Monthly Mortgage: ${house.monthly_mortgage}</p>
-                            <p>Desired Rent: ${house.desired_rent}</p>
+                            <img className='house-image'src={house.image}/>
+                            <div className='house-description'>
+                                <p>Property Name: {house.property_name}</p>
+                                <p>Address: {house.address}</p>
+                                <p>City: {house.city}</p>
+                                <p>State: {house.state}</p>
+                                <p>Zip: {house.zip}</p>
+                                <p>Monthly Mortgage: ${house.monthly_mortgage}</p>
+                                <p>Desired Rent: ${house.desired_rent}</p>
+                            </div>
                         </div>
                     )}
                 
