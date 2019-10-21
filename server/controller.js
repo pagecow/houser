@@ -10,12 +10,8 @@ module.exports = {
     read: (req, res) => {
         const db = req.app.get('db')
         
-        
         db.read_house()
             .then(results => res.status(200).send(results))
-            .catch(err => console.log(err))
-
-        
-        
+            .catch(err => console.log(err)) 
     }
 }

@@ -48,6 +48,7 @@ class House extends React.Component {
                                 <p>Monthly Mortgage: ${house.monthly_mortgage}</p>
                                 <p>Desired Rent: ${house.desired_rent}</p>
                             </div>
+                            <button className='house-delete-button'>X</button>
                         </div>
                     )}
                 
