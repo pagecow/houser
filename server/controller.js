@@ -17,10 +17,10 @@ module.exports = {
     delete: (req, res) => {
         const db = req.app.get('db');
         const {id} = req.params
-        console.log(req.params)
+        console.log(id)
 
         db.delete_house(id)
-            .then()
-            .catch
+            .then(results => res.status(200).send(results))
+            .catch(err => console.log(err))
     }
 }

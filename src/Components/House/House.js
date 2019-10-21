@@ -26,6 +26,15 @@ class House extends React.Component {
             .delete(`/delete/house/${id}`)
 
     }
+
+    newGetRequest = () => {
+        Axios
+            .get('/read/house')
+            .then(res => {
+                this.setState({
+                    list: res.data
+            })
+    })}
     
     render(){
         const {list} = this.state;
@@ -53,7 +62,7 @@ class House extends React.Component {
                                 <p>Monthly Mortgage: ${house.monthly_mortgage}</p>
                                 <p>Desired Rent: ${house.desired_rent}</p>
                             </div>
-                            <button onClick={() => this.handleDelete(house.id)}className='house-delete-button'>X</button>
+                            <button onClick={() => {this.handleDelete(house.id); this.newGetRequest()}} className='house-delete-button'>X</button>
                         </div>
                     )}
                 </div>
