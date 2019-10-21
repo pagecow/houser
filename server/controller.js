@@ -9,14 +9,13 @@ module.exports = {
     },
     read: (req, res) => {
         const db = req.app.get('db')
-        const {property_name, address, city, state, zip, monthly_mortgage, desired_rent, image} = req.body
         
-        let house = db.read_house([property_name, address, city, state, zip, monthly_mortgage, desired_rent, image]);
         
-        house.then(function(result) {
-            console.log(result)
-        })
+        db.read_house()
+            .then(results => res.status(200).send(results))
+            .catch(err => console.log(err))
+
         
-        res.status(200).send(house)
+        
     }
 }

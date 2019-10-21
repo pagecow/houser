@@ -16,16 +16,14 @@ class House extends React.Component {
         Axios
             .get('/read/house')
             .then(res => {
-                console.log(res)
                 this.setState({
-                    ...this.state.list,
                     list: res.data
             })
     })}
     
     render(){
-        const list = this.state.list;
-        
+        const {list} = this.state;
+        console.log(list)
         return(
             <div id='dashboard-center'>
                 <div className='dashboard-center-top'>
@@ -37,7 +35,7 @@ class House extends React.Component {
                 <div className='dashboard-center-bottom'>
                     <h3>Home Listings</h3>
 
-                <ul>
+                
                     {list.map(house => 
                         <div id="box-creator">
                             <img src={house.image}/>
@@ -50,7 +48,7 @@ class House extends React.Component {
                             <p>Desired Rent: ${house.desired_rent}</p>
                         </div>
                     )}
-                </ul>
+                
                 
                 </div>
             </div>

@@ -106,9 +106,9 @@ class Wizard extends React.Component {
 
                         <div id='wizard-buttons'>
                             <Link to='/'><button className='wz-button-1'>Cancel</button></Link>
-                            {/* <Link to='/'> */}
+                            <Link to='/'>
                                 <button className='wz-button-2' onClick={this.handlePost}>Create Listing</button>
-                            {/* </Link> */}
+                            </Link>
                         </div>
                     </div>
                 </body>
