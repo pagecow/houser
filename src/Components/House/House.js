@@ -20,6 +20,12 @@ class House extends React.Component {
                     list: res.data
             })
     })}
+
+    handleDelete = (id) => {
+        Axios
+            .delete(`/delete/house/${id}`)
+
+    }
     
     render(){
         const {list} = this.state;
@@ -35,7 +41,6 @@ class House extends React.Component {
                 <div className='dashboard-center-bottom'>
                     <h3>Home Listings</h3>
 
-                
                     {list.map(house => 
                         <div id="box-creator">
                             <img className='house-image'src={house.image}/>
@@ -48,11 +53,9 @@ class House extends React.Component {
                                 <p>Monthly Mortgage: ${house.monthly_mortgage}</p>
                                 <p>Desired Rent: ${house.desired_rent}</p>
                             </div>
-                            <button className='house-delete-button'>X</button>
+                            <button onClick={() => this.handleDelete(house.id)}className='house-delete-button'>X</button>
                         </div>
                     )}
-                
-                
                 </div>
             </div>
         )

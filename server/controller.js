@@ -8,10 +8,19 @@ module.exports = {
         res.status(200).send(createdHouse)
     },
     read: (req, res) => {
-        const db = req.app.get('db')
+        const db = req.app.get('db');
         
         db.read_house()
             .then(results => res.status(200).send(results))
             .catch(err => console.log(err)) 
+    },
+    delete: (req, res) => {
+        const db = req.app.get('db');
+        const {id} = req.params
+        console.log(req.params)
+
+        db.delete_house(id)
+            .then()
+            .catch
     }
 }

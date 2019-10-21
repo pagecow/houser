@@ -21,6 +21,7 @@ app.use(session({
 
 app.post('/create/house', ctrl.create)
 app.get('/read/house', ctrl.read)
+app.delete('/delete/house/:id', ctrl.delete)
 
 const port = SERVER_PORT;
 app.listen(port, () => console.log(`Server is running on port ${port}`))
